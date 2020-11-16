@@ -33,22 +33,28 @@ debería desplegar la siguiente imagen en pantalla
     solo digitos (6) y no caracteres.
     Debe retornar el numero o string que ingresó el usuario.
     * ` def descompone_numero() `  -> Función que toma el numero ingresado por el usuario y lo 
-    descompone en las unidades que necesita el abaco.<br/>
-    unidad | decena | centena | unidad de 1.000 | unidad de 10.000 | unidad de 100.000
-    <br/>Debe retornar todas estas variables.
-    * ` def actualiza(numero) `  -> Función que muestra en pantalla el dibujo del abaco segun el numero ingresado.
+    descompone en las unidades que necesita el abaco, retornando un lista que representa lo siguiente:<br/>
+    cm = centena de mil, dm = decena de mil, um = unidad de mil, ce = centena, de = decena, un = unidad
+    ["cm","dm","um","ce","de","un"]
+    
+    * ` def crea_tablero( ) `  -> Función que crea el tablero del ábaco mediante un diccionario.
+    * ` def muestra_tablero( tablero ) `  -> Función que imprime en pantalla el tablero del ábaco
+    * ` def actualiza( tablero , numero ) `  -> Función que imprime en pantalla el dibujo del abaco segun el numero ingresado.
+    * ` def cambia_digito( ) `  ->  Función que controla el llenado del ábaco.
     * ` def convertir_numero(numero) `  -> Función que aplica el punto separador de miles para mostrar la cifra con claridad. <br/>
     *** debe retornar el resultado de la conversión.
-    * ` def guardar_numero( ) `  -> Funcion que guarda el numero con punto en la lista que crea la función crea_historial.
-    * ` def crea_tablero( ) `  -> Función que crea el tablero del ábaco mediante un diccionario.
-    * ` def muestra_tablero( ) `  -> Función que imprime en pantalla el tablero del ábaco
-    * ` def cambia_digito( ) `  ->  Función que controla el llenado del ábaco.
     * ` def crea_historial( ) `  ->  Función que crea una lista vacía.
+
+    * ` def guardar_numero( ) `  -> Funcion que guarda el numero con punto en la lista que crea la función crea_historial.
+
+    
     * ` def muestra_historial( ) `  ->  Función que imprime por pantalla el historial de números que se consultaron.
-    * ` def cambia_digito( ) `  ->  Función 
 
 ### Paso 2:
 * Creación de repositorio Github donde se trabaja con ramas por tareas asignadas según las funciones a desarrollar. Teniendo como base una rama Desarrollo donde convergen los aportes de los colaboradores.
 
 ### Paso 3:
 * Aplicar merge con las diferentes ramas y empezar a realizar pruebas de funcionamiento.
+
+### Paso 4:
+* Publicar version operativa del programa en rama principal.

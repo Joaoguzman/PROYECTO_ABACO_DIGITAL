@@ -21,7 +21,7 @@ def cambia_digito(digito):
         return 10
 
 def crea_tablero():
-    marcador = ["cm","dm","mi","ce","de","un"]
+    marcador = ["cm","dm","um","ce","de","un"]
     lista_abaco = {}
     contador = 0
     while contador!=6:
@@ -46,7 +46,7 @@ def muestra_tablero(tablero):
         print()
 
 def actualiza(diccionario,numero):
-    marcador = ["cm","dm","mi","ce","de","un"]
+    marcador = ["cm","dm","um","ce","de","un"]
     cont_numero = 0
 
     for clave in range(0,len(numero)):
