@@ -7,8 +7,7 @@ def solo_digitos():
         numero_original = int(numero_original)
         if numero_original <= 999999:
             print("Numero ", numero_original, "ingresado")
+            return numero_original
     except ValueError:
         print("Ingresa un número. No letras ni puntos.")
-    return numero_original
-
 solo_digitos()
