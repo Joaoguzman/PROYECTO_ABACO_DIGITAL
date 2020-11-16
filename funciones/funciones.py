@@ -21,17 +21,18 @@ def cambia_digito(digito):
         return 10
 
 def crea_tablero():
+    marcador = ["cm","dm","mi","ce","de","un"]
     lista_abaco = {}
     contador = 0
     while contador!=6:
         abaco = [] #string que creará el dibujo
         for estado  in range(0,11): # for que crea un abaco vacio
             if estado == 0 :
-                abaco.append("   +   ") 
+                abaco.append("     +-+    ") 
             elif estado == 10:
-                abaco.append("   +   ")    
+                abaco.append("     {}     ".format(marcador[contador]))  
             elif estado >=1 and estado <=9:
-                abaco.append("  | |  ")    
+                abaco.append("     | |    ")   
             else:
                 abaco.append("#######")
         lista_abaco[contador] = abaco
@@ -45,46 +46,48 @@ def muestra_tablero(tablero):
         print()
 
 def actualiza(diccionario,numero):
+    marcador = ["cm","dm","mi","ce","de","un"]
     cont_numero = 0
-    auxiliar = 0
 
     for clave in range(0,len(numero)):
         abaco = []
         for estado in range(0,11):
             if estado == 0 :
-                abaco.append("   +   ") 
+                abaco.append("   +-+  ")
             elif estado == 10:
-                abaco.append("   {}   ".format(numero[cont_numero]))    
+                abaco.append("   {}   ".format(marcador[cont_numero]))  
             elif estado >=1 and estado <=cambia_digito(numero[cont_numero]):
-                abaco.append("  | |  ")
+                abaco.append("   | |  ")
             else:
-                abaco.append(" ##### ")
+                abaco.append("  ##### ")
         cont_numero = cont_numero + 1
         diccionario[clave] = abaco
     return diccionario
 
-def solo_digitos():
-    numero_original = input("Ingrese un número sin puntos: ")
-    try:
-        numero_original = int(numero_original)
-        if numero_original <= 999999:
-            return numero_original
-    except ValueError:
-        print("Ingresa un número. No letras ni puntos.")
-   
 
-def descompone_numero(numero_original):
-    lista_digitos = [0, 0, 0, 0, 0, 0]
-    numero_original = str(numero_original)
-    for digito in numero_original:
-        lista_digitos.append(digito)
-    unidad = int(lista_digitos[-1])
-    decena = int(lista_digitos[-2])*10
-    centena = int(lista_digitos[-3])*100
-    mil = int(lista_digitos[-4])*1000
-    diez_mil = int(lista_digitos[-5])*10000
-    cien_mil = int(lista_digitos[-6])*100000
-    return print(cien_mil, diez_mil, mil, centena, decena, unidad)
+def solo_digitos():    
+    while True:
+        numero_original = input("Ingrese un número sin puntos: ")    
+        try:        
+            numero_original = int(numero_original)        
+            if numero_original >= 0 and numero_original <= 999999:            
+                return numero_original        
+            else:            
+                print("Ingrese un número entre 0 y 999.999")    
+        except ValueError:        
+            if numero_original == "salir":
+                return "salir"
+            else:
+                print("Ingresa un número. No letras ni puntos.")
+
+def descompone_numero(numero_original):    
+    lista_digitos = [0, 0, 0, 0, 0, 0]    
+    numero_original = str(numero_original)    
+    for digito in numero_original:        
+        lista_digitos.append(int(digito))    
+        while len(lista_digitos) != 6:        
+            lista_digitos.pop(0)         
+    return lista_digitos    
 
 
 def convertir_numero(numero): 
@@ -97,3 +100,9 @@ def guardar_numero(numero, lista):
 def crea_historial():
     lista=[]
     return lista
+
+def muestra_historial(historial):
+    print("Estos son sus números: ")
+    for element in historial:
+        print(element)
+        
